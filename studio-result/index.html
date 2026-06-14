@@ -3,117 +3,108 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ROUND 상세페이지 스튜디오 — 결과 페이지 컨셉 v2</title>
+<title>ROUND 상세페이지 스튜디오 — 결과 페이지 v3</title>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet" />
 <style>
-  :root{ --sky:#5bc8ff; --sky2:#9ad8ff; --lime:#b6f23d; --line:#262626; }
+  :root{ --sky:#5bc8ff; --lime:#b6f23d; --line:#262626; }
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Pretendard',sans-serif;background:#0a0a0a;color:#fafafa;-webkit-font-smoothing:antialiased;letter-spacing:-.02em}
-  .wrap{max-width:980px;margin:0 auto;padding:24px 22px 70px}
-  /* top brand */
-  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:14px}
+  .wrap{max-width:1000px;margin:0 auto;padding:22px 20px 70px}
+
+  /* 브랜드 (가운데) */
+  .brand{display:flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;margin-bottom:16px}
   .logo{width:28px;height:28px;border-radius:8px;background:var(--lime);color:#0a0a0a;display:grid;place-items:center;font-weight:900}
-  .tags{font-size:12px;color:#8a8a8a;font-weight:600}
 
-  /* HERO BANNER (하늘색 이미지 + 버튼, 상단 고정 노출) */
-  .hero{position:relative;border-radius:22px;overflow:hidden;min-height:230px;padding:30px;
-    background:
-      radial-gradient(120% 120% at 85% -10%, rgba(255,255,255,.45), transparent 45%),
-      linear-gradient(135deg,#7fd4ff 0%, #5bc8ff 45%, #3aa8ff 100%);
-    color:#06283d;display:flex;flex-direction:column;justify-content:space-between}
-  .hero .deco{position:absolute;right:-20px;bottom:-30px;opacity:.9}
-  .hero .deco2{position:absolute;right:120px;top:24px;opacity:.85}
-  .hero .eyebrow{font-size:12.5px;font-weight:800;letter-spacing:2px;color:#0b3a5c}
-  .hero h1{margin-top:8px;font-size:36px;font-weight:900;line-height:1.08;letter-spacing:-.03em;color:#062a44;max-width:70%}
-  .hero p{margin-top:10px;font-size:14px;font-weight:600;color:#0b3a5c;max-width:62%;line-height:1.5}
-  .cta{align-self:flex-start;margin-top:20px;display:inline-flex;align-items:center;gap:8px;
-    background:#0a0a0a;color:#fff;font-weight:800;font-size:15px;padding:14px 24px;border-radius:14px;text-decoration:none;
-    box-shadow:0 10px 28px rgba(6,40,61,.35)}
-  .cta .b{background:var(--lime);color:#0a0a0a;border-radius:6px;padding:1px 6px;font-size:12px;margin-left:2px}
+  /* 위에 둥근 버튼들 (가운데) */
+  .pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:20px}
+  .pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#141414;color:#dcdcdc;
+    font-weight:700;font-size:13.5px;padding:11px 20px;border-radius:999px;text-decoration:none;transition:.15s}
+  .pill:hover{border-color:#3a3a3a;background:#1b1b1b}
+  .pill.on{background:var(--lime);color:#0a0a0a;border-color:var(--lime)}
 
-  /* sub action row (보조 버튼들 — 기존 버튼 보존 의미) */
-  .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-  .btn2{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#141414;color:#eaeaea;
-    font-weight:700;font-size:13px;padding:10px 15px;border-radius:11px;text-decoration:none}
+  /* 사진 배너 (가운데 정렬 텍스트) */
+  .hero{position:relative;border-radius:24px;overflow:hidden;min-height:340px;display:flex;align-items:center;justify-content:center;text-align:center}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero .tint{position:absolute;inset:0;background:
+    linear-gradient(180deg, rgba(10,30,50,.35), rgba(8,40,70,.78)),
+    radial-gradient(80% 120% at 50% 120%, rgba(91,200,255,.5), transparent 60%)}
+  .hero .inner{position:relative;padding:46px 24px}
+  .eyebrow{font-size:12.5px;font-weight:800;letter-spacing:3px;color:#bfe9ff}
+  .hero h1{margin-top:12px;font-size:46px;font-weight:900;line-height:1.06;letter-spacing:-.04em;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.4)}
+  .hero p{margin:14px auto 0;max-width:440px;font-size:15px;font-weight:600;color:#e6f4ff;line-height:1.6}
+  .cta{margin-top:24px;display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#0a0a0a;
+    font-weight:800;font-size:16px;padding:15px 30px;border-radius:999px;text-decoration:none;box-shadow:0 12px 30px rgba(91,200,255,.3)}
 
-  /* sections with REAL image thumbs */
-  .sec-title{margin:36px 0 14px;font-size:13px;font-weight:800;letter-spacing:1.5px;color:#9a9a9a}
+  /* 섹션 목차 (가운데 헤더) */
+  .sec-title{margin:42px 0 16px;text-align:center;font-size:13px;font-weight:800;letter-spacing:1.5px;color:#9a9a9a}
   .list{display:grid;gap:12px}
-  .row{display:grid;grid-template-columns:96px 1fr auto;align-items:center;gap:16px;
-    border:1px solid var(--line);border-radius:16px;padding:12px;background:#101010}
-  .thumb{width:96px;height:74px;border-radius:11px;overflow:hidden;position:relative}
-  .thumb span{position:absolute;left:7px;bottom:6px;font-size:10px;font-weight:800;color:#fff;background:rgba(0,0,0,.4);padding:2px 7px;border-radius:99px;backdrop-filter:blur(3px)}
+  .row{display:grid;grid-template-columns:92px 1fr auto;align-items:center;gap:16px;border:1px solid var(--line);border-radius:16px;padding:12px;background:#101010}
+  .thumb{width:92px;height:72px;border-radius:11px;overflow:hidden;position:relative}
+  .thumb img{width:100%;height:100%;object-fit:cover}
+  .thumb span{position:absolute;left:7px;bottom:6px;font-size:10px;font-weight:800;color:#fff;background:rgba(0,0,0,.45);padding:2px 7px;border-radius:99px}
   .num{font-size:13px;font-weight:800;color:var(--sky)}
   .ti{font-size:17px;font-weight:700;margin-top:2px}
   .ti em{display:block;font-style:normal;font-size:12.5px;font-weight:500;color:#888;margin-top:3px}
   .score{font-size:12px;font-weight:800;padding:5px 11px;border-radius:99px;white-space:nowrap}
   .s-good{background:rgba(182,242,61,.15);color:var(--lime)}
   .s-warn{background:rgba(255,150,60,.16);color:#ff9b3c}
-  .s-mid{background:rgba(91,200,255,.16);color:var(--sky)}
-  .foot{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;font-size:12px;color:#666}
-  .demobar{background:#0d1722;border:1px solid #1d3b52;color:var(--sky);font-size:12px;font-weight:700;text-align:center;padding:9px;border-radius:10px;margin-bottom:20px}
-  @media(max-width:720px){.hero h1{max-width:100%;font-size:28px}.hero p{max-width:100%}.thumb,.row{grid-template-columns:80px 1fr auto}.thumb{width:80px;height:62px}}
+  .demobar{background:#0d1722;border:1px solid #1d3b52;color:var(--sky);font-size:12px;font-weight:700;text-align:center;padding:9px;border-radius:10px;margin-bottom:18px}
+  .foot{margin-top:38px;border-top:1px solid var(--line);padding-top:18px;text-align:center;font-size:12px;color:#666}
+  @media(max-width:680px){.hero h1{font-size:32px}}
 </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="demobar">⚙️ ROUND 상세페이지 스튜디오 · 결과 페이지 컨셉 v2 (하늘색 배너 + 상단 버튼 + 실제 이미지)</div>
+    <div class="demobar">⚙️ ROUND 상세페이지 스튜디오 · 결과 페이지 v3 (사진 배너 + 가운데 정렬 + 둥근 버튼)</div>
 
-    <div class="top">
-      <div class="brand"><span class="logo">R</span> ROUND 상세페이지 스튜디오</div>
-      <div class="tags">#진단 · #후기기반카피</div>
+    <div class="brand"><span class="logo">R</span> ROUND 상세페이지 스튜디오</div>
+
+    <!-- 위에 둥근 클릭 버튼들 (가운데) -->
+    <div class="pills">
+      <a class="pill on" href="#">📊 대시보드</a>
+      <a class="pill" href="#">🎨 리디자인 작업</a>
+      <a class="pill" href="#">🖼 결과 확인</a>
+      <a class="pill" href="#">🔑 API 키</a>
+      <a class="pill" href="#">＋ 새 프로젝트</a>
     </div>
 
-    <!-- 하늘색 배너 이미지 + 버튼 (스크롤 없이 상단에) -->
+    <!-- 사진 배너 + 가운데 텍스트 + CTA -->
     <section class="hero">
-      <svg class="deco" width="220" height="180" viewBox="0 0 220 180" fill="none"><circle cx="150" cy="120" r="70" fill="#ffffff" opacity=".22"/><rect x="120" y="40" width="70" height="70" rx="16" fill="#ffffff" opacity=".28"/></svg>
-      <svg class="deco2" width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="14" fill="#fff" opacity=".5"/></svg>
-      <div>
+      <img class="bg" src="https://picsum.photos/seed/roundstudio7/1280/520" alt="배너" />
+      <div class="tint"></div>
+      <div class="inner">
         <div class="eyebrow">REDESIGN RESULT</div>
         <h1>상세페이지<br>리디자인 완료</h1>
         <p>업로드한 상세페이지를 분석해 전환 중심 8개 섹션으로 재설계했어요.</p>
+        <a class="cta" href="#">✨ 섹션 이미지 생성하기</a>
       </div>
-      <a class="cta" href="#">✨ 섹션 이미지 생성하기 <span class="b">GO</span></a>
     </section>
 
-    <!-- 보조 버튼 (실제 앱의 기존 버튼들은 이렇게 유지) -->
-    <div class="actions">
-      <a class="btn2" href="#">🔑 API 키 설정</a>
-      <a class="btn2" href="#">📄 지식파일 등록</a>
-      <a class="btn2" href="#">＋ 새 프로젝트</a>
-    </div>
-
-    <div class="sec-title">리디자인 섹션 목차</div>
+    <div class="sec-title">— 리디자인 섹션 목차 —</div>
     <div class="list">
       <div class="row">
-        <div class="thumb" style="background:linear-gradient(150deg,#7fd4ff,#1f3a52)"><span>히어로</span></div>
+        <div class="thumb"><img src="https://picsum.photos/seed/hero1/200/160" alt=""><span>히어로</span></div>
         <div><div class="num">01</div><div class="ti">히어로<em>3초 안에 누구·무엇·결과를 보여주는 첫 화면</em></div></div>
         <div class="score s-good">강력</div>
       </div>
       <div class="row">
-        <div class="thumb" style="background:linear-gradient(150deg,#b6f23d,#1f3a14)"><span>베네핏</span></div>
+        <div class="thumb"><img src="https://picsum.photos/seed/benefit2/200/160" alt=""><span>베네핏</span></div>
         <div><div class="num">02</div><div class="ti">핵심 베네핏 3<em>기능 나열 말고 체감 언어로</em></div></div>
         <div class="score s-good">강력</div>
       </div>
       <div class="row">
-        <div class="thumb" style="background:linear-gradient(150deg,#ff9b3c,#3a2410)"><span>근거</span></div>
+        <div class="thumb"><img src="https://picsum.photos/seed/proof3/200/160" alt=""><span>근거</span></div>
         <div><div class="num">03</div><div class="ti">신뢰·근거<em>결과 → 조건 → 해석 3단</em></div></div>
         <div class="score s-warn">취약</div>
       </div>
       <div class="row">
-        <div class="thumb" style="background:linear-gradient(150deg,#ff5da2,#3a1226)"><span>후기</span></div>
+        <div class="thumb"><img src="https://picsum.photos/seed/review4/200/160" alt=""><span>후기</span></div>
         <div><div class="num">04</div><div class="ti">후기 카드<em>실구매 후기 기반 카피 6~12개</em></div></div>
         <div class="score s-good">강력</div>
       </div>
-      <div class="row">
-        <div class="thumb" style="background:linear-gradient(150deg,#5bc8ff,#102a3e)"><span>오퍼</span></div>
-        <div><div class="num">05</div><div class="ti">오퍼·CTA<em>할인·세트·한정 + CTA 4회 반복</em></div></div>
-        <div class="score s-warn">취약</div>
-      </div>
     </div>
 
-    <div class="foot">ROUND 상세페이지 스튜디오 · 결과 페이지 시안 v2 · 썸네일 자리에 실제 생성 이미지가 들어갑니다.</div>
+    <div class="foot">ROUND 상세페이지 스튜디오 · 결과 페이지 시안 v3 · 배너/썸네일 자리에 실제 이미지가 들어갑니다.</div>
   </div>
 </body>
 </html>
