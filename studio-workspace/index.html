@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>ROUND 스튜디오 — 실무(메이크오버) 페이지</title>
-<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=Black+Han+Sans&display=swap" rel="stylesheet" />
 <style>
   :root{ --ink:#0a2540; --lime:#9fe000; --card:#0d1320; }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Pretendard',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;letter-spacing:-.02em;min-height:100vh;
+  body{font-family:'IBM Plex Sans KR',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;letter-spacing:-.02em;min-height:100vh;
     background:
       radial-gradient(closest-side at 16% 18%, rgba(255,255,255,.95), transparent 42%),
       radial-gradient(closest-side at 82% 12%, rgba(255,255,255,.85), transparent 38%),
@@ -16,7 +16,7 @@
       linear-gradient(180deg,#e2f3ff 0%, #a8dcff 40%, #6fbcf5 100%);
     background-attachment:fixed}
   .wrap{max-width:1100px;margin:0 auto;padding:24px 20px 70px}
-  .demobar{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);color:#0b3a5c;font-size:12px;font-weight:700;text-align:center;padding:9px;border-radius:10px;margin-bottom:18px;backdrop-filter:blur(6px)}
+  .demobar{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);color:#0b3a5c;font-size:12px;font-weight:700;text-align:center;padding:9px;border-radius:4px;margin-bottom:18px;backdrop-filter:blur(6px)}
 
   /* 상단바: 브랜드 + 둥근버튼 + 큰 생성 CTA */
   .bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:24px}
@@ -33,17 +33,17 @@
 
   .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}
   @media(max-width:860px){.grid{grid-template-columns:1fr}}
-  .panel{background:var(--card);border-radius:20px;padding:20px;box-shadow:0 16px 40px rgba(10,37,64,.18);color:#eaf2ff}
+  .panel{background:var(--card);border-radius:4px;padding:20px;box-shadow:0 16px 40px rgba(10,37,64,.18);color:#eaf2ff}
   .ptitle{font-size:15px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px}
   .ptitle .b{width:5px;height:16px;border-radius:99px;background:var(--lime)}
   .psub{font-size:12.5px;color:#9fb3cc;margin-top:5px;margin-bottom:16px}
 
   /* 업로드 드롭존 */
-  .drop{border:2px dashed #2c3f5a;border-radius:16px;padding:46px 20px;text-align:center;background:#0a1018}
-  .drop .ic{width:54px;height:54px;border-radius:14px;background:rgba(159,224,0,.14);display:grid;place-items:center;margin:0 auto 14px;font-size:24px}
+  .drop{border:2px dashed #2c3f5a;border-radius:4px;padding:46px 20px;text-align:center;background:#0a1018}
+  .drop .ic{width:54px;height:54px;border-radius:4px;background:rgba(159,224,0,.14);display:grid;place-items:center;margin:0 auto 14px;font-size:24px}
   .drop strong{font-size:16px;color:#fff;font-weight:800}
   .drop span{display:block;margin-top:6px;font-size:12.5px;color:#8aa0bd}
-  textarea{margin-top:16px;width:100%;min-height:96px;border-radius:14px;border:1px solid #243650;background:#0a1018;color:#eaf2ff;padding:14px;font-family:inherit;font-size:14px;resize:vertical}
+  textarea{margin-top:16px;width:100%;min-height:96px;border-radius:4px;border:1px solid #243650;background:#0a1018;color:#eaf2ff;padding:14px;font-family:inherit;font-size:14px;resize:vertical}
   textarea::placeholder{color:#6e85a3}
 
   /* 옵션 */
@@ -51,7 +51,7 @@
   .opt .l{font-size:12.5px;font-weight:700;color:#bcccdf;margin-bottom:8px}
   .seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .seg.q4{grid-template-columns:1fr 1fr}
-  .chip{border:1px solid #243650;background:#0a1018;color:#cdd9e8;font-weight:700;font-size:13px;padding:11px;border-radius:12px;text-align:center;cursor:pointer}
+  .chip{border:1px solid #243650;background:#0a1018;color:#cdd9e8;font-weight:700;font-size:13px;padding:11px;border-radius:4px;text-align:center;cursor:pointer}
   .chip.on{background:var(--lime);color:var(--ink);border-color:var(--lime)}
   .foot{margin-top:26px;text-align:center;font-size:12px;color:#2c5070}
 </style>
