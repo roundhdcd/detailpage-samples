@@ -3,95 +3,117 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ROUND 상세페이지 스튜디오 — 결과 페이지 컨셉</title>
+<title>ROUND 상세페이지 스튜디오 — 결과 페이지 컨셉 v2</title>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet" />
 <style>
-  :root{ --lime:#b6f23d; --blue:#5b8cff; --pink:#ff5da2; --orange:#ff7a1a; --line:#2a2a2a; }
+  :root{ --sky:#5bc8ff; --sky2:#9ad8ff; --lime:#b6f23d; --line:#262626; }
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Pretendard',sans-serif;background:#0a0a0a;color:#fafafa;-webkit-font-smoothing:antialiased;letter-spacing:-.02em}
-  .wrap{max-width:1100px;margin:0 auto;padding:40px 32px 80px}
-  /* top */
-  .top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:18px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px}
-  .logo{width:30px;height:30px;border-radius:8px;background:var(--lime);color:#0a0a0a;display:grid;place-items:center;font-weight:900}
-  .tags{font-size:12.5px;color:#8a8a8a;font-weight:600}
-  .tags b{color:var(--lime)}
-  /* hero head */
-  .eyebrow{margin-top:48px;font-size:13px;font-weight:800;letter-spacing:2px;color:var(--lime)}
-  h1{margin-top:10px;font-size:62px;font-weight:900;line-height:.98;letter-spacing:-.04em}
-  h1 .o{color:var(--orange)}
-  .sub{margin-top:18px;font-size:16px;color:#9a9a9a;max-width:520px;line-height:1.6;font-weight:500}
-  /* body grid */
-  .grid{margin-top:54px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-  @media(max-width:820px){.grid{grid-template-columns:1fr;gap:40px}h1{font-size:44px}}
-  /* toc list */
-  .toc{display:flex;flex-direction:column}
-  .toc .row{display:grid;grid-template-columns:54px 1fr auto;align-items:center;gap:14px;padding:18px 4px;border-top:1px solid var(--line)}
-  .toc .row:last-child{border-bottom:1px solid var(--line)}
-  .num{font-size:18px;font-weight:800;color:#666}
-  .row.on .num{color:var(--lime)}
-  .ti{font-size:19px;font-weight:700}
-  .ti span{display:block;font-size:12.5px;font-weight:500;color:#888;margin-top:3px}
-  .score{font-size:12px;font-weight:800;padding:4px 9px;border-radius:999px;white-space:nowrap}
+  .wrap{max-width:980px;margin:0 auto;padding:24px 22px 70px}
+  /* top brand */
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:14px}
+  .logo{width:28px;height:28px;border-radius:8px;background:var(--lime);color:#0a0a0a;display:grid;place-items:center;font-weight:900}
+  .tags{font-size:12px;color:#8a8a8a;font-weight:600}
+
+  /* HERO BANNER (하늘색 이미지 + 버튼, 상단 고정 노출) */
+  .hero{position:relative;border-radius:22px;overflow:hidden;min-height:230px;padding:30px;
+    background:
+      radial-gradient(120% 120% at 85% -10%, rgba(255,255,255,.45), transparent 45%),
+      linear-gradient(135deg,#7fd4ff 0%, #5bc8ff 45%, #3aa8ff 100%);
+    color:#06283d;display:flex;flex-direction:column;justify-content:space-between}
+  .hero .deco{position:absolute;right:-20px;bottom:-30px;opacity:.9}
+  .hero .deco2{position:absolute;right:120px;top:24px;opacity:.85}
+  .hero .eyebrow{font-size:12.5px;font-weight:800;letter-spacing:2px;color:#0b3a5c}
+  .hero h1{margin-top:8px;font-size:36px;font-weight:900;line-height:1.08;letter-spacing:-.03em;color:#062a44;max-width:70%}
+  .hero p{margin-top:10px;font-size:14px;font-weight:600;color:#0b3a5c;max-width:62%;line-height:1.5}
+  .cta{align-self:flex-start;margin-top:20px;display:inline-flex;align-items:center;gap:8px;
+    background:#0a0a0a;color:#fff;font-weight:800;font-size:15px;padding:14px 24px;border-radius:14px;text-decoration:none;
+    box-shadow:0 10px 28px rgba(6,40,61,.35)}
+  .cta .b{background:var(--lime);color:#0a0a0a;border-radius:6px;padding:1px 6px;font-size:12px;margin-left:2px}
+
+  /* sub action row (보조 버튼들 — 기존 버튼 보존 의미) */
+  .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .btn2{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#141414;color:#eaeaea;
+    font-weight:700;font-size:13px;padding:10px 15px;border-radius:11px;text-decoration:none}
+
+  /* sections with REAL image thumbs */
+  .sec-title{margin:36px 0 14px;font-size:13px;font-weight:800;letter-spacing:1.5px;color:#9a9a9a}
+  .list{display:grid;gap:12px}
+  .row{display:grid;grid-template-columns:96px 1fr auto;align-items:center;gap:16px;
+    border:1px solid var(--line);border-radius:16px;padding:12px;background:#101010}
+  .thumb{width:96px;height:74px;border-radius:11px;overflow:hidden;position:relative}
+  .thumb span{position:absolute;left:7px;bottom:6px;font-size:10px;font-weight:800;color:#fff;background:rgba(0,0,0,.4);padding:2px 7px;border-radius:99px;backdrop-filter:blur(3px)}
+  .num{font-size:13px;font-weight:800;color:var(--sky)}
+  .ti{font-size:17px;font-weight:700;margin-top:2px}
+  .ti em{display:block;font-style:normal;font-size:12.5px;font-weight:500;color:#888;margin-top:3px}
+  .score{font-size:12px;font-weight:800;padding:5px 11px;border-radius:99px;white-space:nowrap}
   .s-good{background:rgba(182,242,61,.15);color:var(--lime)}
-  .s-warn{background:rgba(255,122,26,.16);color:var(--orange)}
-  .s-mid{background:rgba(91,140,255,.16);color:var(--blue)}
-  /* shapes panel */
-  .shapes{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .cell{aspect-ratio:1;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;overflow:hidden;background:#0e0e0e}
-  .cap{margin-top:18px;font-size:13px;color:#888;line-height:1.6}
-  .cap b{color:#fafafa}
-  .cta{margin-top:26px;display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#0a0a0a;font-weight:800;font-size:15px;padding:14px 22px;border-radius:12px;text-decoration:none}
-  .foot{margin-top:60px;border-top:1px solid var(--line);padding-top:20px;font-size:12px;color:#666}
-  .demobar{background:#15180e;border:1px solid #2c331f;color:var(--lime);font-size:12px;font-weight:700;text-align:center;padding:9px;border-radius:10px;margin-bottom:26px}
+  .s-warn{background:rgba(255,150,60,.16);color:#ff9b3c}
+  .s-mid{background:rgba(91,200,255,.16);color:var(--sky)}
+  .foot{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;font-size:12px;color:#666}
+  .demobar{background:#0d1722;border:1px solid #1d3b52;color:var(--sky);font-size:12px;font-weight:700;text-align:center;padding:9px;border-radius:10px;margin-bottom:20px}
+  @media(max-width:720px){.hero h1{max-width:100%;font-size:28px}.hero p{max-width:100%}.thumb,.row{grid-template-columns:80px 1fr auto}.thumb{width:80px;height:62px}}
 </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="demobar">⚙️ ROUND 상세페이지 스튜디오 · 결과 페이지 디자인 컨셉 (목업)</div>
+    <div class="demobar">⚙️ ROUND 상세페이지 스튜디오 · 결과 페이지 컨셉 v2 (하늘색 배너 + 상단 버튼 + 실제 이미지)</div>
 
     <div class="top">
       <div class="brand"><span class="logo">R</span> ROUND 상세페이지 스튜디오</div>
-      <div class="tags">#진단 &nbsp; #리디자인 &nbsp; <b>#후기기반카피</b></div>
+      <div class="tags">#진단 · #후기기반카피</div>
     </div>
 
-    <div class="eyebrow">REDESIGN RESULT</div>
-    <h1>상세페이지<br>리디자인 <span class="o">목차</span></h1>
-    <p class="sub">업로드한 상세페이지를 분석해, 구매전환이 더 높은 8개 섹션으로 재설계했어요. 각 섹션은 한 장 이미지로 바로 제작됩니다.</p>
-
-    <div class="grid">
-      <!-- TOC -->
-      <div class="toc">
-        <div class="row on"><div class="num">01</div><div class="ti">히어로<span>3초 안에 누구·무엇·결과를 보여주는 첫 화면</span></div><div class="score s-good">강력</div></div>
-        <div class="row"><div class="num">02</div><div class="ti">문제 공감<span>"내 얘기"라고 느끼게 하는 상황 체크</span></div><div class="score s-mid">보강</div></div>
-        <div class="row"><div class="num">03</div><div class="ti">핵심 베네핏 3<span>기능 나열 X, 체감 언어로</span></div><div class="score s-good">강력</div></div>
-        <div class="row"><div class="num">04</div><div class="ti">신뢰·근거<span>결과 → 조건 → 해석 3단 구조</span></div><div class="score s-warn">취약</div></div>
-        <div class="row"><div class="num">05</div><div class="ti">후기 카드<span>실구매 후기 기반 카피 6~12개</span></div><div class="score s-good">강력</div></div>
-        <div class="row"><div class="num">06</div><div class="ti">오퍼 · CTA<span>할인·세트·한정 + 4회 반복</span></div><div class="score s-warn">취약</div></div>
-      </div>
-
-      <!-- shapes -->
+    <!-- 하늘색 배너 이미지 + 버튼 (스크롤 없이 상단에) -->
+    <section class="hero">
+      <svg class="deco" width="220" height="180" viewBox="0 0 220 180" fill="none"><circle cx="150" cy="120" r="70" fill="#ffffff" opacity=".22"/><rect x="120" y="40" width="70" height="70" rx="16" fill="#ffffff" opacity=".28"/></svg>
+      <svg class="deco2" width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="14" fill="#fff" opacity=".5"/></svg>
       <div>
-        <div class="shapes">
-          <div class="cell">
-            <svg width="86" height="86" viewBox="0 0 86 86"><rect x="14" y="14" width="58" height="58" fill="none" stroke="#5b8cff" stroke-width="10"/><rect x="32" y="32" width="22" height="22" fill="#5b8cff"/></svg>
-          </div>
-          <div class="cell">
-            <svg width="92" height="92" viewBox="0 0 92 92"><g fill="#ff5da2"><circle cx="46" cy="20" r="11"/><circle cx="72" cy="46" r="11"/><circle cx="46" cy="72" r="11"/><circle cx="20" cy="46" r="11"/><circle cx="64" cy="28" r="11"/><circle cx="64" cy="64" r="11"/><circle cx="28" cy="64" r="11"/><circle cx="28" cy="28" r="11"/></g><circle cx="46" cy="46" r="14" fill="#0a0a0a"/></svg>
-          </div>
-          <div class="cell">
-            <svg width="80" height="80" viewBox="0 0 80 80"><path d="M16 16 H44 V44 H72 V72 H16 Z" fill="#ff7a1a"/></svg>
-          </div>
-          <div class="cell">
-            <svg width="92" height="80" viewBox="0 0 92 80"><g fill="none" stroke="#b6f23d" stroke-width="7"><path d="M16 64 A30 30 0 0 1 76 64"/><path d="M30 64 A16 16 0 0 1 62 64"/></g></svg>
-          </div>
-        </div>
-        <p class="cap"><b>진단 스코어카드</b>로 약한 섹션(근거·오퍼)을 짚고,<br><b>후기 데이터 기반</b>으로 카피를 다시 씁니다.</p>
-        <a class="cta" href="#">섹션 이미지 생성하기 →</a>
+        <div class="eyebrow">REDESIGN RESULT</div>
+        <h1>상세페이지<br>리디자인 완료</h1>
+        <p>업로드한 상세페이지를 분석해 전환 중심 8개 섹션으로 재설계했어요.</p>
+      </div>
+      <a class="cta" href="#">✨ 섹션 이미지 생성하기 <span class="b">GO</span></a>
+    </section>
+
+    <!-- 보조 버튼 (실제 앱의 기존 버튼들은 이렇게 유지) -->
+    <div class="actions">
+      <a class="btn2" href="#">🔑 API 키 설정</a>
+      <a class="btn2" href="#">📄 지식파일 등록</a>
+      <a class="btn2" href="#">＋ 새 프로젝트</a>
+    </div>
+
+    <div class="sec-title">리디자인 섹션 목차</div>
+    <div class="list">
+      <div class="row">
+        <div class="thumb" style="background:linear-gradient(150deg,#7fd4ff,#1f3a52)"><span>히어로</span></div>
+        <div><div class="num">01</div><div class="ti">히어로<em>3초 안에 누구·무엇·결과를 보여주는 첫 화면</em></div></div>
+        <div class="score s-good">강력</div>
+      </div>
+      <div class="row">
+        <div class="thumb" style="background:linear-gradient(150deg,#b6f23d,#1f3a14)"><span>베네핏</span></div>
+        <div><div class="num">02</div><div class="ti">핵심 베네핏 3<em>기능 나열 말고 체감 언어로</em></div></div>
+        <div class="score s-good">강력</div>
+      </div>
+      <div class="row">
+        <div class="thumb" style="background:linear-gradient(150deg,#ff9b3c,#3a2410)"><span>근거</span></div>
+        <div><div class="num">03</div><div class="ti">신뢰·근거<em>결과 → 조건 → 해석 3단</em></div></div>
+        <div class="score s-warn">취약</div>
+      </div>
+      <div class="row">
+        <div class="thumb" style="background:linear-gradient(150deg,#ff5da2,#3a1226)"><span>후기</span></div>
+        <div><div class="num">04</div><div class="ti">후기 카드<em>실구매 후기 기반 카피 6~12개</em></div></div>
+        <div class="score s-good">강력</div>
+      </div>
+      <div class="row">
+        <div class="thumb" style="background:linear-gradient(150deg,#5bc8ff,#102a3e)"><span>오퍼</span></div>
+        <div><div class="num">05</div><div class="ti">오퍼·CTA<em>할인·세트·한정 + CTA 4회 반복</em></div></div>
+        <div class="score s-warn">취약</div>
       </div>
     </div>
 
-    <div class="foot">ROUND 상세페이지 스튜디오 · 결과 페이지 디자인 시안 (실제 데이터로 채워집니다)</div>
+    <div class="foot">ROUND 상세페이지 스튜디오 · 결과 페이지 시안 v2 · 썸네일 자리에 실제 생성 이미지가 들어갑니다.</div>
   </div>
 </body>
 </html>
