@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>쿨브리즈 핸디 선풍기 — 상세페이지 샘플</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0c2733; --sub:#5b7785; --mint:#16c2a3; --mint-d:#0e9e85;
+    --sky:#e8fbf6; --line:#e3eef0; --accent:#ff5a5f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Pretendard',sans-serif;color:var(--ink);background:#f3f6f7;-webkit-font-smoothing:antialiased}
+  .page{max-width:440px;margin:0 auto;background:#fff;overflow:hidden}
+  /* HERO */
+  .hero{position:relative;padding:56px 28px 60px;text-align:center;
+    background:radial-gradient(120% 80% at 50% 0%,#bff3ea 0%,#e8fbf6 45%,#ffffff 100%);overflow:hidden}
+  .hero .glow{position:absolute;inset:0;background:radial-gradient(40% 30% at 50% 18%,rgba(22,194,163,.25),transparent 70%)}
+  .badge{position:relative;display:inline-block;font-size:13px;font-weight:700;color:var(--mint-d);
+    background:#fff;border:1px solid #b9ece1;border-radius:999px;padding:7px 16px;letter-spacing:-.2px;margin-bottom:22px;
+    box-shadow:0 6px 18px rgba(22,194,163,.15)}
+  h1{position:relative;font-size:30px;font-weight:800;line-height:1.32;letter-spacing:-1px}
+  h1 .hl{color:var(--mint-d)}
+  .sub{position:relative;margin-top:16px;font-size:16px;color:var(--sub);line-height:1.6;font-weight:500;letter-spacing:-.3px}
+  /* product */
+  .fan{position:relative;width:200px;height:200px;margin:34px auto 8px;animation:float 3.4s ease-in-out infinite}
+  @keyframes float{50%{transform:translateY(-12px)}}
+  .fan .spin{transform-origin:50% 38%;animation:spin 1.1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .specs{position:relative;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:18px}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 13px;font-size:13px;font-weight:700;
+    color:var(--ink);box-shadow:0 4px 12px rgba(12,39,51,.05)}
+  .chip b{color:var(--mint-d)}
+  .cta{position:relative;display:block;margin:30px 22px 0;background:linear-gradient(135deg,var(--mint),var(--mint-d));
+    color:#fff;text-decoration:none;text-align:center;font-size:17px;font-weight:800;padding:17px;border-radius:16px;
+    box-shadow:0 12px 26px rgba(14,158,133,.4);letter-spacing:-.3px}
+  /* section */
+  .sec{padding:46px 28px}
+  .sec.alt{background:var(--sky)}
+  .tag{font-size:13px;font-weight:800;color:var(--mint-d);letter-spacing:.4px;text-transform:uppercase;margin-bottom:10px}
+  .sec h2{font-size:23px;font-weight:800;line-height:1.4;letter-spacing:-.6px}
+  .sec p.d{margin-top:12px;font-size:15px;color:var(--sub);line-height:1.7;font-weight:500;letter-spacing:-.3px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 16px;text-align:center}
+  .card .ic{font-size:26px}
+  .card .t{margin-top:8px;font-size:15px;font-weight:800}
+  .card .s{margin-top:4px;font-size:12.5px;color:var(--sub);line-height:1.5}
+  /* review */
+  .rev{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:14px}
+  .stars{color:#ffb400;font-size:14px;letter-spacing:2px}
+  .rev .q{margin-top:8px;font-size:14.5px;font-weight:600;line-height:1.6;letter-spacing:-.3px}
+  .rev .u{margin-top:8px;font-size:12px;color:var(--sub);font-weight:600}
+  .note{font-size:11.5px;color:#9bb0b8}
+  .foot{padding:34px 28px 46px;text-align:center;background:#0c2733;color:#cfe6e2}
+  .foot .price{font-size:14px;color:#8fb8b1}
+  .foot .p2{font-size:30px;font-weight:800;color:#fff;margin-top:4px}
+  .foot .p2 small{font-size:15px;color:#8fb8b1;font-weight:600;text-decoration:line-through;margin-right:8px}
+  .foot .cta2{display:block;margin-top:22px;background:var(--accent);color:#fff;text-decoration:none;font-weight:800;
+    padding:16px;border-radius:14px;font-size:16px}
+  .ribbon{background:var(--ink);color:#bff3ea;text-align:center;font-size:12.5px;font-weight:700;padding:9px;letter-spacing:-.2px}
+  .demobar{background:#fff4e5;color:#9a6a1a;font-size:11.5px;text-align:center;padding:7px;font-weight:700}
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="demobar">⚙️ ROUND 상세페이지 제작 샘플 · 후기 데이터 기반 카피 적용 데모</div>
+    <div class="ribbon">🔥 여름 한정 · 오늘 주문 시 당일출고</div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="glow"></div>
+      <span class="badge">손풍기 1위 도전 · 누적후기 12,400+</span>
+      <h1>들고 다니는 <span class="hl">에어컨 바람</span><br/>손에서 부는 시원함</h1>
+      <p class="sub">후기에서 가장 많이 나온 한마디<br/>“생각보다 바람 세고, 진짜 조용해요.”</p>
+
+      <div class="fan" aria-label="핸디 선풍기">
+        <svg viewBox="0 0 200 200" width="200" height="200">
+          <defs>
+            <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#1ad3b1"/><stop offset="1" stop-color="#0e9e85"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="100" cy="186" rx="46" ry="9" fill="#0c2733" opacity="0.10"/>
+          <rect x="86" y="92" width="28" height="86" rx="14" fill="url(#body)"/>
+          <rect x="84" y="150" width="32" height="14" rx="4" fill="#0b8a73"/>
+          <circle cx="100" cy="74" r="60" fill="#ffffff" stroke="#cdeee7" stroke-width="3"/>
+          <g class="spin">
+            <g fill="#16c2a3" opacity="0.92">
+              <path d="M100 74 C100 40, 122 30, 134 44 C120 52, 110 60, 100 74Z"/>
+              <path d="M100 74 C130 86, 134 110, 116 118 C110 102, 104 90, 100 74Z"/>
+              <path d="M100 74 C82 102, 58 102, 54 82 C72 80, 88 78, 100 74Z"/>
+              <path d="M100 74 C78 48, 84 24, 104 26 C100 44, 100 58, 100 74Z" opacity="0.0"/>
+            </g>
+            <circle cx="100" cy="74" r="11" fill="#0e9e85"/>
+            <circle cx="100" cy="74" r="4" fill="#fff"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="specs">
+        <span class="chip"><b>3단</b> 풍량</span>
+        <span class="chip"><b>5000mAh</b> 22시간</span>
+        <span class="chip"><b>180g</b> 초경량</span>
+        <span class="chip"><b>24dB</b> 저소음</span>
+      </div>
+
+      <a class="cta" href="#order" data-cta>지금 시원해지기 →</a>
+    </section>
+
+    <!-- WHY (후기 기반) -->
+    <section class="sec">
+      <div class="tag">why 쿨브리즈</div>
+      <h2>“써보니까 이래서 사는구나” 싶은<br/>후기 TOP 3 포인트</h2>
+      <p class="d">실구매 후기 12,400건을 분석해서, 사람들이 진짜 만족한 이유만 뽑았어요.</p>
+      <div class="grid">
+        <div class="card"><div class="ic">🌪️</div><div class="t">바람이 세다</div><div class="s">3단에선 “머리 날린다”는 후기 다수</div></div>
+        <div class="card"><div class="ic">🔇</div><div class="t">조용하다</div><div class="s">도서관·회의실에서도 부담 없는 24dB</div></div>
+        <div class="card"><div class="ic">🔋</div><div class="t">하루 종일</div><div class="s">1단 기준 최대 22시간, 외출 걱정 끝</div></div>
+        <div class="card"><div class="ic">🪶</div><div class="t">안 무겁다</div><div class="s">계란 3개 무게 180g, 손목 안 아픔</div></div>
+      </div>
+    </section>
+
+    <!-- REVIEW -->
+    <section class="sec alt">
+      <div class="tag">real review</div>
+      <h2>괜히 12,400개가 아니에요</h2>
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <div class="q">“출퇴근 지하철에서 진짜 살았어요. 바람 세기 조절되는 게 신의 한 수.”</div>
+        <div class="u">김○현 · 실구매 후기</div>
+      </div>
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <div class="q">“조용해서 사무실에서 눈치 안 보여요. 배터리도 이틀 가요.”</div>
+        <div class="u">이○주 · 실구매 후기</div>
+      </div>
+      <p class="d note">※ 후기 문구는 샘플 데모용 예시입니다. 실제 제작 시 고객사 스마트스토어 후기를 분석해 카피를 생성합니다.</p>
+    </section>
+
+    <!-- ORDER -->
+    <section class="foot" id="order">
+      <div class="price">여름 한정 특가</div>
+      <div class="p2"><small>29,000원</small>19,900원</div>
+      <a class="cta2" href="#" data-cta>🛒 당일출고로 주문하기</a>
+      <p class="note" style="margin-top:16px;color:#5f8079">ROUND · 후기 데이터 기반 상세페이지 제작 샘플</p>
+    </section>
+  </div>
+</body>
+</html>
