@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ROUND 스튜디오 — 실무(메이크오버) 페이지</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet" />
+<style>
+  :root{ --ink:#0a2540; --lime:#9fe000; --card:#0d1320; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Pretendard',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;letter-spacing:-.02em;min-height:100vh;
+    background:
+      radial-gradient(closest-side at 16% 18%, rgba(255,255,255,.95), transparent 42%),
+      radial-gradient(closest-side at 82% 12%, rgba(255,255,255,.85), transparent 38%),
+      radial-gradient(closest-side at 60% 70%, rgba(255,255,255,.55), transparent 44%),
+      linear-gradient(180deg,#e2f3ff 0%, #a8dcff 40%, #6fbcf5 100%);
+    background-attachment:fixed}
+  .wrap{max-width:1100px;margin:0 auto;padding:24px 20px 70px}
+  .demobar{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);color:#0b3a5c;font-size:12px;font-weight:700;text-align:center;padding:9px;border-radius:10px;margin-bottom:18px;backdrop-filter:blur(6px)}
+
+  /* 상단바: 브랜드 + 둥근버튼 + 큰 생성 CTA */
+  .bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:15px}
+  .logo{width:28px;height:28px;border-radius:8px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:900}
+  .pills{display:flex;gap:8px;flex-wrap:wrap}
+  .pill{border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.5);color:var(--ink);font-weight:700;font-size:13.5px;padding:9px 18px;border-radius:999px;text-decoration:none;backdrop-filter:blur(6px)}
+  .pill.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .gen{margin-left:auto;display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:var(--ink);font-weight:900;font-size:16px;padding:14px 26px;border-radius:999px;text-decoration:none;box-shadow:0 12px 28px rgba(159,224,0,.4)}
+
+  .head{text-align:center;margin:6px 0 24px}
+  .head h1{font-size:42px;font-weight:900;letter-spacing:-.04em;color:var(--ink)}
+  .head p{margin-top:8px;color:#0e4068;font-weight:600;font-size:15px}
+
+  .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  .panel{background:var(--card);border-radius:20px;padding:20px;box-shadow:0 16px 40px rgba(10,37,64,.18);color:#eaf2ff}
+  .ptitle{font-size:15px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px}
+  .ptitle .b{width:5px;height:16px;border-radius:99px;background:var(--lime)}
+  .psub{font-size:12.5px;color:#9fb3cc;margin-top:5px;margin-bottom:16px}
+
+  /* 업로드 드롭존 */
+  .drop{border:2px dashed #2c3f5a;border-radius:16px;padding:46px 20px;text-align:center;background:#0a1018}
+  .drop .ic{width:54px;height:54px;border-radius:14px;background:rgba(159,224,0,.14);display:grid;place-items:center;margin:0 auto 14px;font-size:24px}
+  .drop strong{font-size:16px;color:#fff;font-weight:800}
+  .drop span{display:block;margin-top:6px;font-size:12.5px;color:#8aa0bd}
+  textarea{margin-top:16px;width:100%;min-height:96px;border-radius:14px;border:1px solid #243650;background:#0a1018;color:#eaf2ff;padding:14px;font-family:inherit;font-size:14px;resize:vertical}
+  textarea::placeholder{color:#6e85a3}
+
+  /* 옵션 */
+  .opt{margin-bottom:18px}
+  .opt .l{font-size:12.5px;font-weight:700;color:#bcccdf;margin-bottom:8px}
+  .seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .seg.q4{grid-template-columns:1fr 1fr}
+  .chip{border:1px solid #243650;background:#0a1018;color:#cdd9e8;font-weight:700;font-size:13px;padding:11px;border-radius:12px;text-align:center;cursor:pointer}
+  .chip.on{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+  .foot{margin-top:26px;text-align:center;font-size:12px;color:#2c5070}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="demobar">⚙️ ROUND 상세페이지 스튜디오 · 실무(메이크오버) 페이지 시안</div>
+
+    <div class="bar">
+      <div class="brand"><span class="logo">R</span> ROUND 스튜디오</div>
+      <div class="pills">
+        <a class="pill" href="#">대시보드</a>
+        <a class="pill on" href="#">메이크오버</a>
+        <a class="pill" href="#">결과 확인</a>
+      </div>
+      <a class="gen" href="#">✨ 메이크오버 생성하기</a>
+    </div>
+
+    <div class="head">
+      <h1>새 상세페이지 메이크오버</h1>
+      <p>기존 상세페이지를 올리면 전환 중심으로 다시 설계해줘요.</p>
+    </div>
+
+    <div class="grid">
+      <!-- 왼쪽: 업로드 + 요청 -->
+      <div class="panel">
+        <div class="ptitle"><span class="b"></span>기존 상세페이지 올리기</div>
+        <div class="psub">이미지 또는 PDF를 올리면 원본 정보·전환 저해 요소를 분석해요.</div>
+        <div class="drop">
+          <div class="ic">⬆️</div>
+          <strong>이미지 · PDF를 여기에 끌어다 놓기</strong>
+          <span>제품컷·수치·리뷰·인증·오퍼 문구를 최대한 보존해요</span>
+        </div>
+        <div class="ptitle" style="margin-top:20px"><span class="b"></span>추가 요청사항</div>
+        <textarea placeholder="예) 첫 화면에서 차별점이 바로 보이게, 구매 불안 줄이는 근거 섹션 강화, 과장 표현 제외, 스마트스토어에 맞춰 스캔 쉽게."></textarea>
+      </div>
+
+      <!-- 오른쪽: 옵션 -->
+      <div class="panel">
+        <div class="ptitle"><span class="b"></span>생성 옵션</div>
+        <div class="psub">상세페이지 섹션 단위로 생성</div>
+
+        <div class="opt">
+          <div class="l">이미지 모델</div>
+          <div class="seg">
+            <div class="chip on">OpenAI Image</div>
+            <div class="chip">Google 나노바나나</div>
+          </div>
+        </div>
+        <div class="opt">
+          <div class="l">결과 장수</div>
+          <div class="seg">
+            <div class="chip on">히어로 1장</div>
+            <div class="chip">기본 6~8장</div>
+          </div>
+        </div>
+        <div class="opt">
+          <div class="l">출력 비율</div>
+          <div class="seg">
+            <div class="chip on">9:16</div>
+            <div class="chip">1080×1920</div>
+          </div>
+        </div>
+        <div class="opt">
+          <div class="l">판매 채널</div>
+          <div class="seg q4" style="grid-template-columns:1fr 1fr;gap:8px">
+            <div class="chip on">스마트스토어</div>
+            <div class="chip">쿠팡</div>
+            <div class="chip">자사몰</div>
+            <div class="chip">와디즈</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">ROUND 상세페이지 스튜디오 · 실무 페이지 시안 · 실제로는 업로드→생성이 작동합니다.</div>
+  </div>
+</body>
+</html>
