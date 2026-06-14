@@ -3,58 +3,60 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ROUND 상세페이지 스튜디오 — 결과 v4</title>
+<title>ROUND 상세페이지 스튜디오 — 결과 v6</title>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet" />
 <style>
-  :root{ --sky:#5bc8ff; --lime:#b6f23d; --line:#262626; --ink:#0a2540; }
+  :root{ --ink:#0a2540; --sky:#5bc8ff; --lime:#9fe000; --line:rgba(10,37,64,.12); }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Pretendard',sans-serif;background:#0a0a0a;color:#fafafa;-webkit-font-smoothing:antialiased;letter-spacing:-.02em}
-  .wrap{max-width:1040px;margin:0 auto;padding:22px 20px 70px}
-
-  .brand{display:flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;margin-bottom:18px}
-  .logo{width:28px;height:28px;border-radius:8px;background:var(--lime);color:#0a0a0a;display:grid;place-items:center;font-weight:900}
-
-  /* 위 둥근 버튼 (아이콘 X, 새 프로젝트만 컬러) */
-  .pills{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-bottom:22px}
-  .pill{border:1px solid var(--line);background:#141414;color:#dcdcdc;font-weight:700;font-size:14px;padding:11px 22px;border-radius:999px;text-decoration:none}
-  .pill.on{background:#fff;color:#0a0a0a;border-color:#fff}
-  .pill.cta{background:var(--lime);color:#0a0a0a;border-color:var(--lime);box-shadow:0 6px 18px rgba(182,242,61,.25)}
-
-  /* 하늘 이미지 배너 + 가운데 + 큰 임팩트 텍스트 */
-  .hero{position:relative;border-radius:26px;overflow:hidden;min-height:380px;display:flex;align-items:center;justify-content:center;text-align:center;
+  /* 베이스 화면 자체가 하늘 이미지 */
+  body{font-family:'Pretendard',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;letter-spacing:-.02em;min-height:100vh;
     background:
-      radial-gradient(closest-side at 22% 78%, rgba(255,255,255,.95), transparent 62%),
-      radial-gradient(closest-side at 74% 26%, rgba(255,255,255,.8), transparent 55%),
-      radial-gradient(closest-side at 88% 72%, rgba(255,255,255,.7), transparent 50%),
-      linear-gradient(180deg,#cdecff 0%, #88ccff 48%, #4aa6f5 100%)}
-  .hero .inner{position:relative;padding:52px 24px}
-  .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;color:#0b3a5c;background:rgba(255,255,255,.55);padding:6px 14px;border-radius:999px;backdrop-filter:blur(4px)}
-  .hero h1{margin-top:18px;font-size:74px;font-weight:900;line-height:.98;letter-spacing:-.05em;color:var(--ink)}
-  .hero p{margin:16px auto 0;max-width:460px;font-size:16px;font-weight:600;color:#0e3a5e;line-height:1.55}
-  .cta{margin-top:26px;display:inline-flex;align-items:center;gap:8px;background:#0a0a0a;color:#fff;font-weight:800;font-size:17px;padding:16px 34px;border-radius:999px;text-decoration:none;box-shadow:0 14px 34px rgba(10,37,64,.3)}
-  @media(max-width:680px){.hero h1{font-size:46px}}
+      radial-gradient(closest-side at 16% 20%, rgba(255,255,255,.95), transparent 42%),
+      radial-gradient(closest-side at 80% 14%, rgba(255,255,255,.85), transparent 38%),
+      radial-gradient(closest-side at 64% 66%, rgba(255,255,255,.6), transparent 44%),
+      radial-gradient(closest-side at 30% 84%, rgba(255,255,255,.55), transparent 40%),
+      linear-gradient(180deg,#e2f3ff 0%, #a8dcff 38%, #6fbcf5 100%);
+    background-attachment:fixed;background-size:cover}
+  .wrap{max-width:1040px;margin:0 auto;padding:26px 20px 70px}
 
-  /* 섹션 목차 = 가로 이미지 카드 */
-  .sec-title{margin:44px 0 16px;text-align:center;font-size:22px;font-weight:900;letter-spacing:-.03em}
+  .brand{display:flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;margin-bottom:20px;color:var(--ink)}
+  .logo{width:28px;height:28px;border-radius:8px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:900}
+
+  /* 둥근 글래스 버튼 (하늘 위) */
+  .pills{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-bottom:30px}
+  .pill{border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.5);color:var(--ink);font-weight:700;font-size:14px;padding:11px 22px;border-radius:999px;text-decoration:none;backdrop-filter:blur(6px)}
+  .pill.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .pill.cta{background:var(--lime);color:var(--ink);border-color:var(--lime);box-shadow:0 8px 20px rgba(159,224,0,.35)}
+
+  /* 히어로 (하늘 위 가운데, 큰 임팩트) */
+  .hero{text-align:center;padding:34px 16px 50px}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;color:var(--ink);background:rgba(255,255,255,.6);padding:7px 16px;border-radius:999px}
+  h1{margin-top:20px;font-size:84px;font-weight:900;line-height:.95;letter-spacing:-.05em;color:var(--ink);text-shadow:0 6px 30px rgba(255,255,255,.5)}
+  .hero p{margin:18px auto 0;max-width:460px;font-size:16px;font-weight:600;color:#0e4068;line-height:1.55}
+  .cta{margin-top:28px;display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;font-weight:800;font-size:17px;padding:17px 36px;border-radius:999px;text-decoration:none;box-shadow:0 16px 38px rgba(10,37,64,.28)}
+  @media(max-width:680px){h1{font-size:52px}}
+
+  /* 섹션 목차 = 가로 이미지 카드 (하늘 위 떠있는 다크 카드) */
+  .sec-title{margin:30px 0 16px;text-align:center;font-size:22px;font-weight:900;letter-spacing:-.03em;color:var(--ink)}
   .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   @media(max-width:820px){.cards{grid-template-columns:repeat(2,1fr)}}
-  .card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#101010}
+  .card{border-radius:18px;overflow:hidden;background:#0d1320;box-shadow:0 14px 34px rgba(10,37,64,.18)}
   .ph{position:relative;aspect-ratio:4/3;overflow:hidden}
   .ph img{width:100%;height:100%;object-fit:cover}
   .ph .n{position:absolute;left:10px;top:9px;font-size:12px;font-weight:900;color:#fff;background:rgba(0,0,0,.5);padding:3px 9px;border-radius:99px;backdrop-filter:blur(3px)}
   .ph .sc{position:absolute;right:10px;top:9px;font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px}
-  .s-good{background:var(--lime);color:#0a0a0a}
-  .s-warn{background:#ff9b3c;color:#0a0a0a}
-  .cbody{padding:13px 14px}
+  .s-good{background:var(--lime);color:var(--ink)}
+  .s-warn{background:#ffb13c;color:var(--ink)}
+  .cbody{padding:13px 14px;color:#eaf2ff}
   .cbody strong{font-size:16px;font-weight:800}
-  .cbody em{display:block;font-style:normal;font-size:12px;color:#8a8a8a;margin-top:4px;line-height:1.45}
-  .demobar{background:#0d1722;border:1px solid #1d3b52;color:var(--sky);font-size:12px;font-weight:700;text-align:center;padding:9px;border-radius:10px;margin-bottom:18px}
-  .foot{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;text-align:center;font-size:12px;color:#666}
+  .cbody em{display:block;font-style:normal;font-size:12px;color:#9fb3cc;margin-top:4px;line-height:1.45}
+  .demobar{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);color:#0b3a5c;font-size:12px;font-weight:700;text-align:center;padding:9px;border-radius:10px;margin-bottom:18px;backdrop-filter:blur(6px)}
+  .foot{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;text-align:center;font-size:12px;color:#3a6285}
 </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="demobar">⚙️ ROUND 상세페이지 스튜디오 · 결과 v5 · 메이크오버</div>
+    <div class="demobar">⚙️ ROUND 상세페이지 스튜디오 · 결과 v6 (베이스 전체를 하늘 이미지로)</div>
 
     <div class="brand"><span class="logo">R</span> ROUND 상세페이지 스튜디오</div>
 
@@ -67,12 +69,10 @@
     </div>
 
     <section class="hero">
-      <div class="inner">
-        <span class="eyebrow">분석 완료 · 8개 섹션</span>
-        <h1>상세페이지<br>완성</h1>
-        <p>업로드한 상세페이지를 분석해 전환 중심 8개 섹션으로 새로 설계했어요.</p>
-        <a class="cta" href="#">✨ 섹션 이미지 생성하기</a>
-      </div>
+      <span class="eyebrow">분석 완료 · 8개 섹션</span>
+      <h1>상세페이지<br>완성</h1>
+      <p>업로드한 상세페이지를 분석해 전환 중심 8개 섹션으로 새로 설계했어요.</p>
+      <a class="cta" href="#">✨ 섹션 이미지 생성하기</a>
     </section>
 
     <div class="sec-title">섹션 목차</div>
@@ -95,7 +95,7 @@
       </div>
     </div>
 
-    <div class="foot">ROUND 상세페이지 스튜디오 · 결과 시안 v4 · 배너/썸네일 자리에 실제 이미지가 들어갑니다.</div>
+    <div class="foot">ROUND 상세페이지 스튜디오 · 결과 시안 v6 · 하늘 배경/썸네일 자리에 실제 이미지가 들어갑니다.</div>
   </div>
 </body>
 </html>
